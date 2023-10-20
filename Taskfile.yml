@@ -1,0 +1,17 @@
+version: '3'
+
+dotenv: ['.env']
+
+tasks:
+  deploy:
+    cmds:
+      - forge script script/EternalChat.s.sol --rpc-url "$RPC_URL" --private-key "$PRIVATE_KEY" --broadcast -vvvv
+
+  test:
+    cmds:
+      - forge test --fork-url "$RPC_URL" -vvv
+
+  node:
+    cmds:
+      - anvil --host "$ANVIL_HOST" -p "$ANVIL_PORT"
+
